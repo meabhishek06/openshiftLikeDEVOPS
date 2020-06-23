@@ -1,4 +1,5 @@
 FROM centos
 RUN yum install httpd -y
-COPY -r co/index.html /var/www/html
+RUN cp index.html /var/local/
+COPY /var/local/index.html /var/www/html
 ENTRYPOINT ["/usr/sbin/httpd", "-D","FOREGROUND"]
